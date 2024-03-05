@@ -11,7 +11,7 @@ import Image from "next/image";
 
 export const Navbar = () => {
   return (
-    <div className="flex h-[56px] items-center justify-between md:gap-x-10 xl:gap-x-20">
+    <div className="flex h-[56px] w-full items-center justify-between bg-background md:gap-x-10 xl:gap-x-20">
       {/* Left */}
       <div className="flex h-full items-center">
         <Button className="p-2" variant="ghost" size="icon">

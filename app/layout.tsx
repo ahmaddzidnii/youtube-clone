@@ -1,12 +1,14 @@
-import type { Metadata } from "next";
-import { Poppins } from "next/font/google";
-import "./globals.css";
-import { Navbar } from "@/components/navbar";
 import NextTopLoader from "nextjs-toploader";
+import type { Metadata } from "next";
+import { Poppins, Roboto } from "next/font/google";
+import "./globals.css";
 
-const poppins = Poppins({
+import { Navbar } from "@/components/navbar";
+import { Sidebar } from "@/components/sidebar";
+
+const poppins = Roboto({
+  weight: ["100", "300", "400", "500", "700", "900"],
   subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
@@ -21,12 +23,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${poppins.className} container overflow-x-hidden`}>
-        <header className=" w-full">
+      <body className={`${poppins.className}  container  overflow-x-hidden `}>
+        <NextTopLoader color="#ff0000" />
+        <header className=" sticky top-0 z-30 w-full">
           <Navbar />
-          <NextTopLoader />
         </header>
-        {children}
+
+        <div className="flex h-[calc(100vh-56px)] gap-x-5">
+          <Sidebar />
+          <div className=" h-full flex-1 overflow-y-auto ">{children}</div>
+        </div>
       </body>
     </html>
   );
