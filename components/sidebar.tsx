@@ -23,7 +23,7 @@ import { OlahragaIcon } from "./icon/olahraga-icon";
 
 export const Sidebar = () => {
   return (
-    <aside className="scrollbar-thumb scrollbar-w-2 hidden h-full max-h-screen w-[240px] overflow-y-hidden p-[12px] scrollbar scrollbar-thumb-[#606060]/40 hover:overflow-y-auto xl:block">
+    <aside className=" scrollbar-thumb sticky hidden h-full max-h-screen w-[240px] overflow-y-hidden p-[12px] scrollbar scrollbar-thumb-[#606060]/40 scrollbar-w-2 hover:overflow-y-auto xl:block">
       {/* Top Section */}
       <div className="flex w-full flex-col text-[14px]">
         <div className="flex h-[40px] items-center gap-x-5  rounded-md bg-secondary px-[12px] hover:bg-secondary">

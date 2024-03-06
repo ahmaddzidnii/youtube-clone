@@ -23,7 +23,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${poppins.className}  container  overflow-x-hidden `}>
+      <body
+        className={`${poppins.className}   container overflow-hidden overflow-x-hidden `}
+      >
         <NextTopLoader color="#ff0000" />
         <header className=" sticky top-0 z-30 w-full">
           <Navbar />
@@ -31,7 +33,9 @@ export default function RootLayout({
 
         <div className="flex h-[calc(100vh-56px)] gap-x-5">
           <Sidebar />
-          <div className=" h-full flex-1 overflow-y-auto ">{children}</div>
+          <div className="h-full flex-1 overflow-y-auto   scrollbar scrollbar-thumb-[#606060]/40 scrollbar-w-2 ">
+            {children}
+          </div>
         </div>
       </body>
     </html>
