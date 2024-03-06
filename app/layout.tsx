@@ -31,14 +31,7 @@ export default function RootLayout({
         <header className=" sticky top-0 z-30 w-full">
           <Navbar />
         </header>
-        <SidebarMobile />
-
-        <div className="flex h-[calc(100vh-56px)] gap-x-4">
-          <Sidebar />
-          <div className="h-full flex-1 overflow-y-auto   scrollbar scrollbar-thumb-[#606060]/40 scrollbar-w-2 ">
-            {children}
-          </div>
-        </div>
+        {children}
       </body>
     </html>
   );
