@@ -5,6 +5,7 @@ import "./globals.css";
 
 import { Navbar } from "@/components/navbar";
 import { Sidebar } from "@/components/sidebar";
+import { SidebarMobile } from "@/components/sidebar-mobile";
 
 const poppins = Roboto({
   weight: ["100", "300", "400", "500", "700", "900"],
@@ -30,8 +31,9 @@ export default function RootLayout({
         <header className=" sticky top-0 z-30 w-full">
           <Navbar />
         </header>
+        <SidebarMobile />
 
-        <div className="flex h-[calc(100vh-56px)] gap-x-5">
+        <div className="flex h-[calc(100vh-56px)] gap-x-4">
           <Sidebar />
           <div className="h-full flex-1 overflow-y-auto   scrollbar scrollbar-thumb-[#606060]/40 scrollbar-w-2 ">
             {children}

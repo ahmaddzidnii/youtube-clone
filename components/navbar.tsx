@@ -1,3 +1,4 @@
+"use client";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoIosSearch } from "react-icons/io";
 import { IoMdMic } from "react-icons/io";
@@ -8,13 +9,20 @@ import { Button } from "@/components/ui/button";
 import { YoutubeIconLogo } from "@/components/icon/youtube-icon-full";
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
+import { UseSidebar } from "@/hooks/use-sidebar";
 
 export const Navbar = () => {
+  const { onOpen } = UseSidebar();
   return (
     <div className="flex h-[56px] w-full items-center justify-between bg-background md:gap-x-10 xl:gap-x-20">
       {/* Left */}
       <div className="flex h-full items-center">
-        <Button className="p-2" variant="ghost" size="icon">
+        <Button
+          className="p-2"
+          variant="ghost"
+          size="icon"
+          onClick={() => onOpen()}
+        >
           {/* TODO : Add fungsi untuk menangani sidebar */}
           <RxHamburgerMenu className="h-[24px] w-[24px]" />
         </Button>
@@ -36,12 +44,12 @@ export const Navbar = () => {
             />
             <Button
               variant="ghost"
-              className="inline-flex rounded-e-3xl rounded-s-none border bg-neutral-200"
+              className="inline-flex rounded-e-3xl rounded-s-none border bg-secondary"
             >
               <IoIosSearch className="h-[24px] w-[24px]" />
             </Button>
           </div>
-          <div className="flex aspect-square h-[40px] w-[40px] items-center justify-center rounded-full bg-neutral-200">
+          <div className="flex aspect-square h-[40px] w-[40px] items-center justify-center rounded-full bg-secondary">
             <IoMdMic className="h-[24px] w-[24px]" />
           </div>
         </div>
