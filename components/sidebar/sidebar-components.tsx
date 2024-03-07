@@ -73,7 +73,7 @@ export const SidebarLarge = () => {
           <p className="w-full">Shorts</p>
         </Link>
         <Link
-          href="/subscription"
+          href="/feed/subscriptions"
           className="flex h-[40px] items-center gap-x-5 rounded-md px-[12px] hover:bg-secondary"
         >
           <YoutubeSubscribtionIcon className=" h-[24px] w-[24px]" />

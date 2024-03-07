@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { TextTruncate } from "./text-truncate";
 import { IoIosMusicalNote } from "react-icons/io";
-import { useRouter } from "next/navigation";
 
 export const CardListVideo = ({
   video_id,
@@ -22,7 +21,7 @@ export const CardListVideo = ({
           },
         }}
       >
-        <div className="relative h-[160px]  w-full overflow-hidden rounded-2xl ">
+        <div className="relative h-[190px]  w-full overflow-hidden rounded-2xl sm:h-[185px] xl:h-[160px] ">
           <Image
             fill
             className="object-cover"
