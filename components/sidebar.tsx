@@ -8,6 +8,7 @@ import { useSidebar } from "@/hooks/use-sidebar";
 
 export const Sidebar = () => {
   const { sidebar_medium_open } = useSidebar();
+
   return (
     <>
       {/* Sidebar Medium */}
@@ -16,11 +17,11 @@ export const Sidebar = () => {
       </div>
       {/* Sidebar Medium */}
 
-      {/* Sidebar Besar */}
+      {/* Sidebar Large */}
       <div className="hidden xl:block">
         {sidebar_medium_open ? <SidebarMedium /> : <SidebarLarge />}
       </div>
-      {/* Sidebar Besar */}
+      {/* Sidebar Large */}
     </>
   );
 };

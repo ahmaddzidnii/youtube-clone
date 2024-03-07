@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 import { IoIosArrowUp, IoMdHome } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
@@ -52,6 +53,7 @@ export const SidebarMedium = () => {
 
 export const SidebarLarge = () => {
   const { showMore, setShowMore } = useShowMore();
+
   return (
     <aside className=" scrollbar-thumb h-full max-h-screen w-[240px] overflow-y-hidden py-[12px] pe-[12px] scrollbar scrollbar-thumb-[#606060]/40 scrollbar-w-2 hover:overflow-y-auto ">
       {/* Top Section */}
