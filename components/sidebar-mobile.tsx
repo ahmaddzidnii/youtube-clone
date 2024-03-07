@@ -4,13 +4,13 @@ import { useEffect, useState } from "react";
 import { RxHamburgerMenu } from "react-icons/rx";
 
 import { Sheet, SheetContent } from "@/components/ui/sheet";
-import { UseSidebar } from "@/hooks/use-sidebar";
+import { useSidebar } from "@/hooks/use-sidebar";
 import { Button } from "@/components/ui/button";
 import { YoutubeIconLogo } from "@/components/icon/youtube-icon-full";
 import { SidebarLarge } from "@/components/sidebar/sidebar-components";
 
 export const SidebarMobile = () => {
-  const { isOpen, onClose } = UseSidebar();
+  const { isOpen, onClose } = useSidebar();
 
   const [isMounted, setIsMounted] = useState(false);
 
@@ -23,8 +23,8 @@ export const SidebarMobile = () => {
   }
   return (
     <>
-      <Sheet open={isOpen} onOpenChange={onClose}>
-        <SheetContent className="w-[270px]" side="left">
+      <Sheet modal={false} open={isOpen} onOpenChange={onClose}>
+        <SheetContent className="w-[270px] xl:hidden" side="left">
           <div className="-mt-5">
             <div className="flex h-full items-center">
               <Button

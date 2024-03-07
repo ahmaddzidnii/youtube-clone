@@ -9,27 +9,41 @@ import { Button } from "@/components/ui/button";
 import { YoutubeIconLogo } from "@/components/icon/youtube-icon-full";
 import { Input } from "@/components/ui/input";
 import Image from "next/image";
-import { UseSidebar } from "@/hooks/use-sidebar";
+import { useSidebar } from "@/hooks/use-sidebar";
+import Link from "next/link";
 
 export const Navbar = () => {
-  const { onOpen } = UseSidebar();
+  const { onOpen, setSidebarMediumState, sidebar_medium_open } = useSidebar();
   return (
     <div className="flex h-[56px] w-full items-center justify-between bg-background md:gap-x-10 xl:gap-x-20">
       {/* Left */}
       <div className="flex h-full items-center">
         <Button
-          className="p-2"
+          className="p-2 xl:hidden"
           variant="ghost"
           size="icon"
           onClick={() => onOpen()}
+        >
+          <RxHamburgerMenu className="h-[24px] w-[24px]" />
+        </Button>
+        {/* Button Khusus device xl  ke atas */}
+        <Button
+          className=" hidden p-2 xl:block"
+          variant="ghost"
+          size="icon"
+          onClick={() => {
+            setSidebarMediumState(!sidebar_medium_open);
+          }}
         >
           {/* TODO : Add fungsi untuk menangani sidebar */}
           <RxHamburgerMenu className="h-[24px] w-[24px]" />
         </Button>
 
-        <div className="ml-[16px] h-[20px] w-[90px]">
+        {/* Button Khusus device xl  ke atas */}
+
+        <Link href="/" className="ml-[16px] h-[20px] w-[90px]">
           <YoutubeIconLogo />
-        </div>
+        </Link>
       </div>
       {/* Left */}
 

@@ -1,10 +1,13 @@
-import { IoMdHome } from "react-icons/io";
+"use client";
+
 import Link from "next/link";
 
+import { IoIosArrowUp, IoMdHome } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
 import { IoIosArrowDown } from "react-icons/io";
 import { FiPlusCircle } from "react-icons/fi";
 import { IoSettingsOutline } from "react-icons/io5";
+import { AiOutlineLike } from "react-icons/ai";
 
 import { YoutubeShortsIcon } from "@/components/icon/youtube-shorts-icon";
 import { YoutubeSubscribtionIcon } from "@/components/icon/youtube-subscribtion-icon";
@@ -20,24 +23,60 @@ import { FilmIcon } from "@/components/icon/film-icon";
 import { GameIcon } from "@/components/icon/game-icon";
 import { BeritaIcon } from "@/components/icon/berita-icon";
 import { OlahragaIcon } from "@/components/icon/olahraga-icon";
+import { useShowMore } from "@/hooks/use-show-more";
+
+export const SidebarMedium = () => {
+  return (
+    <aside className="w-[72px] pe-[12px]">
+      <div className="flex h-full w-full flex-col  text-[10px]">
+        <div className=" flex h-[74px] w-[64px] flex-col items-center justify-center gap-2  rounded-md hover:bg-secondary ">
+          <IoMdHome className=" h-[24px] w-[24px]" />
+          <p className="w-full text-center">Beranda</p>
+        </div>
+        <div className=" flex h-[74px] w-[64px] flex-col items-center justify-center gap-2  rounded-md hover:bg-secondary ">
+          <YoutubeShortsIcon className=" h-[24px] w-[24px]" />
+          <p className="w-full text-center">Shorts</p>
+        </div>
+        <div className=" flex h-[74px] w-[64px] flex-col items-center justify-center gap-2  rounded-md hover:bg-secondary ">
+          <YoutubeSubscribtionIcon className=" h-[24px] w-[24px]" />
+          <p className="w-full text-center">Subscription</p>
+        </div>
+        <div className=" flex h-[74px] w-[64px] flex-col items-center justify-center gap-2  rounded-md hover:bg-secondary ">
+          <YoutubeVideoAndaIcon className=" h-[24px] w-[24px]" />
+          <p className="w-full text-center">Anda</p>
+        </div>
+      </div>
+    </aside>
+  );
+};
 
 export const SidebarLarge = () => {
+  const { showMore, setShowMore } = useShowMore();
   return (
-    <aside className=" scrollbar-thumb sticky h-full max-h-screen w-[240px] overflow-y-hidden p-[12px] scrollbar scrollbar-thumb-[#606060]/40 scrollbar-w-2 hover:overflow-y-auto ">
+    <aside className=" scrollbar-thumb h-full max-h-screen w-[240px] overflow-y-hidden py-[12px] pe-[12px] scrollbar scrollbar-thumb-[#606060]/40 scrollbar-w-2 hover:overflow-y-auto ">
       {/* Top Section */}
       <div className="flex w-full flex-col text-[14px]">
-        <div className="flex h-[40px] items-center gap-x-5  rounded-md bg-secondary px-[12px] hover:bg-secondary">
+        <Link
+          href="/"
+          className="flex h-[40px] items-center gap-x-5  rounded-md bg-secondary px-[12px] hover:bg-secondary"
+        >
           <IoMdHome className=" h-[24px] w-[24px]" />
           <p className="w-full">Beranda</p>
-        </div>
-        <div className="flex h-[40px] items-center gap-x-5 rounded-md px-[12px] hover:bg-secondary">
+        </Link>
+        <Link
+          href="/shorts"
+          className="flex h-[40px] items-center gap-x-5 rounded-md px-[12px] hover:bg-secondary"
+        >
           <YoutubeShortsIcon className=" h-[24px] w-[24px]" />
           <p className="w-full">Shorts</p>
-        </div>
-        <div className="flex h-[40px] items-center gap-x-5 rounded-md px-[12px] hover:bg-secondary">
+        </Link>
+        <Link
+          href="/subscription"
+          className="flex h-[40px] items-center gap-x-5 rounded-md px-[12px] hover:bg-secondary"
+        >
           <YoutubeSubscribtionIcon className=" h-[24px] w-[24px]" />
           <p className="w-full">Subscription</p>
-        </div>
+        </Link>
       </div>
       {/* Top Section */}
 
@@ -69,10 +108,33 @@ export const SidebarLarge = () => {
             <YoutubeTontonNantiIcon className=" h-[24px] w-[24px]" />
             <p className="w-full">Tonton nanti</p>
           </div>
-          <div className="flex h-[40px] items-center gap-x-5 rounded-md px-[12px] hover:bg-secondary">
-            <IoIosArrowDown className=" h-[24px] w-[24px]" />
-            <p className="w-full">Lebih banyak</p>
+          <div id="show-more" className={showMore ? "block" : "hidden"}>
+            <div className="flex h-[40px] items-center gap-x-5 rounded-md px-[12px] hover:bg-secondary">
+              <AiOutlineLike className=" h-[24px] w-[24px]" />
+              <p className="w-full">Video yang disukai</p>
+            </div>
           </div>
+          {/* Button Show More */}
+          {showMore ? (
+            <div
+              role="button"
+              onClick={() => setShowMore(false)}
+              className="flex h-[40px] items-center gap-x-5 rounded-md px-[12px] hover:bg-secondary"
+            >
+              <IoIosArrowUp className=" h-[24px] w-[24px]" />
+              <p className="w-full">Lebih Sedikit</p>
+            </div>
+          ) : (
+            <div
+              role="button"
+              onClick={() => setShowMore(true)}
+              className="flex h-[40px] items-center gap-x-5 rounded-md px-[12px] hover:bg-secondary"
+            >
+              <IoIosArrowDown className=" h-[24px] w-[24px]" />
+              <p className="w-full">Lebih banyak</p>
+            </div>
+          )}
+          {/* Button Show More */}
         </div>
       </div>
       {/* Middle Section */}
