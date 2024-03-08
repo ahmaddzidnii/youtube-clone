@@ -8,9 +8,12 @@ import { useSidebar } from "@/hooks/use-sidebar";
 import { Button } from "@/components/ui/button";
 import { YoutubeIconLogo } from "@/components/icon/youtube-icon-full";
 import { SidebarLarge } from "@/components/sidebar/sidebar-components";
+import { cn } from "@/lib/utils";
+import { usePathname } from "next/navigation";
 
 export const SidebarMobile = () => {
   const { isOpen, onClose } = useSidebar();
+  const pathname = usePathname();
 
   const [isMounted, setIsMounted] = useState(false);
 
@@ -24,7 +27,10 @@ export const SidebarMobile = () => {
   return (
     <>
       <Sheet modal={false} open={isOpen} onOpenChange={onClose}>
-        <SheetContent className="w-[270px] xl:hidden" side="left">
+        <SheetContent
+          className={cn("w-[270px] ", pathname !== "/watch" && "2xl:hidden")}
+          side="left"
+        >
           <div className="-mt-5">
             <div className="flex h-full items-center">
               <Button

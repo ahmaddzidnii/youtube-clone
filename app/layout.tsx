@@ -34,10 +34,13 @@ export default function RootLayout({
       >
         <NextTopLoader initialPosition={0.15} color="#ff0000" />
         <header className=" sticky top-0 z-30 w-full">
-          <Navbar />
+          <Suspense fallback={<></>}>
+            <Navbar />
+          </Suspense>
         </header>
-
-        <SidebarMobile />
+        <Suspense fallback={<></>}>
+          <SidebarMobile />
+        </Suspense>
 
         <Suspense fallback={<></>}>
           <SidebarCloseProvider />

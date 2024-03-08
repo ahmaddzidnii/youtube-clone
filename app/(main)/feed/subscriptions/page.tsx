@@ -1,3 +1,7 @@
 export default function SubscriptionsPage() {
-  return <div>Subscriptions</div>;
+  return (
+    <div>
+      <h1>Subscriptions</h1>
+    </div>
+  );
 }

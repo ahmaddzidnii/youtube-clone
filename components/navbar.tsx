@@ -11,24 +11,43 @@ import { Input } from "@/components/ui/input";
 import Image from "next/image";
 import { useSidebar } from "@/hooks/use-sidebar";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { cn } from "@/lib/utils";
 
 export const Navbar = () => {
   const { onOpen, setSidebarMediumState, sidebar_medium_open } = useSidebar();
+  const pathname = usePathname();
   return (
     <div className="flex h-[56px] w-full items-center justify-between bg-background md:gap-x-10 xl:gap-x-20">
       {/* Left */}
       <div className="flex h-full items-center">
         <Button
-          className="p-2 xl:hidden"
+          className={cn("p-2", pathname !== "/watch" && "xl:hidden")}
           variant="ghost"
           size="icon"
-          onClick={() => onOpen()}
+          onClick={() => {
+            onOpen();
+          }}
         >
           <RxHamburgerMenu className="h-[24px] w-[24px]" />
         </Button>
-        {/* Button Khusus device xl  ke atas */}
+
+        {/* Button Khusus path watch  ke atas */}
         <Button
-          className=" hidden p-2 xl:block"
+          className={cn("hidden p-2 ", pathname !== "/watch" && "xl:block")}
+          variant="ghost"
+          size="icon"
+          onClick={() => {
+            setSidebarMediumState(!sidebar_medium_open);
+          }}
+        >
+          <RxHamburgerMenu className="h-[24px] w-[24px]" />
+        </Button>
+
+        {/* Button Khusus device xl  ke atas */}
+
+        <Button
+          className=" hidden"
           variant="ghost"
           size="icon"
           onClick={() => {
