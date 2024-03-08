@@ -21,7 +21,7 @@ export const CardListVideo = ({
           },
         }}
       >
-        <div className="relative h-[190px]  w-full overflow-hidden rounded-2xl sm:h-[185px] xl:h-[160px] ">
+        <div className="relative aspect-video w-full overflow-hidden rounded-2xl">
           <Image
             fill
             className="object-cover"

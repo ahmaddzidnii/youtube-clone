@@ -30,7 +30,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         suppressHydrationWarning
-        className={`${poppins.className} container overflow-hidden overflow-x-hidden `}
+        className={`${poppins.className} container  overflow-x-hidden `}
       >
         <NextTopLoader initialPosition={0.15} color="#ff0000" />
         <header className=" sticky top-0 z-30 w-full">
