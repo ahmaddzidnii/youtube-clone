@@ -72,7 +72,15 @@ export const CardListVideo = ({
               <IoIosMusicalNote />
             </span>
           </div>
-          <Link href="/watch?v=QhubX_VQogk" className="text-muted-foreground">
+          <Link
+            href={{
+              pathname: "/watch",
+              query: {
+                v: video_id,
+              },
+            }}
+            className="text-muted-foreground"
+          >
             <p>2,9 jt x ditonton</p>
             <p>11 hari yang lalu</p>
           </Link>
