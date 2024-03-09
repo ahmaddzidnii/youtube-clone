@@ -1,12 +1,16 @@
 import { TextTruncate } from "@/components/text-truncate";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
 import { ButtonInteractive } from "@/components/watch/button-interactive";
+import { TextAreaCustom } from "@/components/watch/comment/text-area";
 import {
   RecommendationVideoXLToUp,
   RecommendationVideoXltoBottom,
 } from "@/components/watch/recommendation-video";
 import { VideoPlayer } from "@/components/watch/video-player";
 import Image from "next/image";
+import { BsFilterLeft } from "react-icons/bs";
 
 export const metadata = {
   title: "title video",
@@ -64,26 +68,46 @@ export default function WatchPage({
           </div>
           {/* Komponen Like dislike dll Mode Layar md ke atas */}
         </div>
+
+        {/* Komponen Like dislike dll Mode Layar md ke bawah */}
+        <div className=" md:hidden">
+          <ButtonInteractive />
+        </div>
+        {/* Komponen Like dislike dll Mode Layar md ke bawah */}
+
+        {/* Lebar layar xl ke bawah */}
+        {Array.from({ length: 20 }).map((_, i) => (
+          <RecommendationVideoXltoBottom key={i} />
+        ))}
+        <Button variant="outline" className="rounded-3xl xl:hidden">
+          Lebih Banyak
+        </Button>
+        {/* Lebar layar xl ke bawah */}
+
+        {/* Komentar */}
+        <div className="mb-8 mt-6 flex flex-col">
+          <div className="mb-6 flex items-center gap-x-4 p-2">
+            <h1 className="text-[20px] font-bold">7.601 Komentar</h1>
+            <button className="inline-flex items-center gap-x-[1px] text-[14px]">
+              <BsFilterLeft className="mr-2 h-6 w-6" /> Urutkan
+            </button>
+          </div>
+          <div className="flex">
+            <div className="relative aspect-square h-[40px] w-[40px] overflow-hidden rounded-full">
+              <Image alt="profile" src="https://placehold.co/40x40" fill />
+            </div>
+            <TextAreaCustom />
+          </div>
+        </div>
+        {/* Komentar */}
       </div>
-      {/* Komponen Like dislike dll Mode Layar md ke bawah */}
-      <div className=" md:hidden">
-        <ButtonInteractive />
-      </div>
-      {/* Komponen Like dislike dll Mode Layar md ke bawah */}
+
       <div className="w-full xl:w-[405px]">
         <div className="flex flex-col gap-3">
           {/* Lebar layar xl ke atas */}
           {Array.from({ length: 20 }).map((_, i) => (
             <RecommendationVideoXLToUp key={i} />
           ))}
-          {/* Lebar layar xl ke bawah */}
-          {Array.from({ length: 20 }).map((_, i) => (
-            <RecommendationVideoXltoBottom key={i} />
-          ))}
-          <Button variant="outline" className="rounded-3xl xl:hidden">
-            Lebih Banyak
-          </Button>
-          {/* Lebar layar xl ke bawah */}
         </div>
         {/* Lebar layar xl ke atas */}
       </div>
