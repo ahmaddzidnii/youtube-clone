@@ -1,6 +1,10 @@
 import { TextTruncate } from "@/components/text-truncate";
 import { Button } from "@/components/ui/button";
 import { ButtonInteractive } from "@/components/watch/button-interactive";
+import {
+  RecommendationVideoXLToUp,
+  RecommendationVideoXltoBottom,
+} from "@/components/watch/recommendation-video";
 import { VideoPlayer } from "@/components/watch/video-player";
 import Image from "next/image";
 
@@ -68,36 +72,20 @@ export default function WatchPage({
       {/* Komponen Like dislike dll Mode Layar md ke bawah */}
       <div className="w-full xl:w-[405px]">
         <div className="flex flex-col gap-3">
+          {/* Lebar layar xl ke atas */}
           {Array.from({ length: 20 }).map((_, i) => (
-            <div key={i} className="flex gap-2">
-              <div className="relative aspect-video w-[168px] overflow-hidden rounded-xl">
-                <Image
-                  alt="tes"
-                  className="object-cover"
-                  src="https://i.ytimg.com/vi/QhubX_VQogk/hqdefault.jpg?s…RUAAIhCGAE=&rs=AOn4CLCW21fVUJxW168IWA9C5awpUdYonA"
-                  fill
-                />
-              </div>
-              <div className="w-full flex-1 ">
-                <TextTruncate
-                  className=" hidden h-[40px] w-full pb-[4px] text-[14px] font-bold leading-snug xl:block"
-                  maxLength={40}
-                  text="Arsy Widianto, Tiara Andini - Masih Hatiku (Official Music Video)"
-                />
-                <h2 className="text-[14px] font-bold leading-snug xl:hidden">
-                  Arsy Widianto, Tiara Andini - Masih Hatiku (Official Music
-                  Video)
-                </h2>
-                <h3 className="text-[12px] text-muted-foreground">
-                  Arsy Widianto
-                </h3>
-                <p className="text-[12px] text-muted-foreground">
-                  2,9 jt x ditonton <span>• 2 minggu yang lalu</span>
-                </p>
-              </div>
-            </div>
+            <RecommendationVideoXLToUp key={i} />
           ))}
+          {/* Lebar layar xl ke bawah */}
+          {Array.from({ length: 20 }).map((_, i) => (
+            <RecommendationVideoXltoBottom key={i} />
+          ))}
+          <Button variant="outline" className="rounded-3xl xl:hidden">
+            Lebih Banyak
+          </Button>
+          {/* Lebar layar xl ke bawah */}
         </div>
+        {/* Lebar layar xl ke atas */}
       </div>
     </main>
   );
