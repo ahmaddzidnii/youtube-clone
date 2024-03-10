@@ -1,10 +1,9 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import { Separator } from "@/components/ui/separator";
-import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils";
-import { useLayoutEffect, useState } from "react";
+import { useState } from "react";
 import { GrEmoji } from "react-icons/gr";
+import TextareaAutosize from "react-textarea-autosize";
 
 export const TextAreaCustom = () => {
   const [text, setText] = useState("");
@@ -20,39 +19,29 @@ export const TextAreaCustom = () => {
     setText(event.target.value);
   };
 
-  useLayoutEffect(() => {
-    const textarea = document.getElementById("custom-textarea");
-    if (textarea) {
-      textarea.style.height = "auto";
-      textarea.style.height = textarea.scrollHeight + "px";
-    }
-  }, [text]);
-
   return (
     <div className="w-full transition-colors duration-300 ease-in-out">
-      <Textarea
+      <TextareaAutosize
+        onHeightChange={(e) => {
+          console.log(e);
+        }}
         id="custom-textarea"
+        value={text}
+        placeholder="Tulis Komentar..."
         onFocus={() => {
           setIsComment(true);
         }}
-        placeholder="Tambahkan komentar..."
-        className=" border-none pb-0 ring-0 focus-visible:ring-0 focus-visible:ring-offset-0 disabled:cursor-text"
         onChange={handleChange}
-        value={text}
+        className="duration-800  w-full max-w-full resize-none overflow-hidden rounded-none border-x-0 border-b-2 border-t-0 border-secondary pb-1 ps-0  outline-none transition-colors ease-in focus-visible:border-primary"
       />
-      <Separator
-        className={cn("-pt-1 ms-3 bg-secondary", isComment && "bg-primary")}
-      />
+
       <div
         className={cn(
-          "mt-3 flex w-full justify-between",
+          "mt-1 flex w-full justify-between",
           !isComment && "hidden",
         )}
       >
-        <Button
-          variant="ghost"
-          className="ms-2  aspect-square rounded-full p-0"
-        >
+        <Button variant="ghost" className=" aspect-square rounded-full p-0">
           <GrEmoji className="h-[30px] w-[30px]" />
         </Button>
 
