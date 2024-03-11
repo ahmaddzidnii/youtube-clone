@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
@@ -19,13 +19,13 @@ export const CommentExpand = ({
   const [isExpand, setIsExpand] = useState(false);
 
   const truncated = (text: string, maxLength: number): string => {
-    if (text.length <= maxLength) {
+    if (text?.length <= maxLength) {
       return text;
     }
-    return text.slice(0, maxLength) + "...";
+    return text?.slice(0, maxLength) + "...";
   };
 
-  const shouldShowExpandButton = text.length > maxLength;
+  const shouldShowExpandButton = text?.length > maxLength;
 
   const textRender = isExpand ? text : truncated(text, maxLength);
 

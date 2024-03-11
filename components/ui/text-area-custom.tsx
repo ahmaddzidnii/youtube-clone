@@ -22,9 +22,6 @@ export const TextAreaCustom = () => {
   return (
     <div className="w-full transition-colors duration-300 ease-in-out">
       <TextareaAutosize
-        onHeightChange={(e) => {
-          console.log(e);
-        }}
         id="custom-textarea"
         value={text}
         placeholder="Tulis Komentar..."
