@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 import { ButtonInteractive } from "@/components/watch/button-interactive";
@@ -8,6 +9,8 @@ import {
 } from "@/components/watch/recommendation-video";
 import { VideoPlayer } from "@/components/watch/video-player";
 import { CommentComponent } from "@/components/watch/comment";
+import React from "react";
+import { DescriptionComponent } from "@/components/watch/description/description-component";
 
 export const metadata = {
   title: "title video",
@@ -75,6 +78,10 @@ export default function WatchPage({
         </div>
         {/* Komponen Like dislike dll Mode Layar md ke bawah */}
 
+        {/* Deskripsi */}
+        <DescriptionComponent />
+        {/* Deskripsi */}
+
         {/* Lebar layar xl ke bawah */}
         {Array.from({ length: 20 }).map((_, i) => (
           <RecommendationVideoXltoBottom key={i} />
@@ -89,7 +96,7 @@ export default function WatchPage({
         {/* Komentar */}
       </div>
 
-      <div className="w-full xl:w-[405px]">
+      <div className="w-full lg:w-[405px]">
         <div className="flex flex-col gap-3">
           {/* Lebar layar xl ke atas */}
           {Array.from({ length: 30 }).map((_, i) => (

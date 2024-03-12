@@ -1,8 +1,9 @@
 import Image from "next/image";
-import { CommentExpand } from "./comment-expand";
-import { InputReply } from "./input-reply";
-import { Button } from "@/components/ui/button";
 import { IoMdArrowDropdown } from "react-icons/io";
+
+import { CommentExpand } from "@/components/watch/comment/comment-expand";
+import { InputReply } from "@/components/watch/comment/input-reply";
+import { Button } from "@/components/ui/button";
 
 interface ListCommentProps {
   comment_text: string;

@@ -12,14 +12,14 @@ export const ReplyComment = () => {
       <Button
         onClick={() => setIsExpandReply(!isExpandReply)}
         variant="ghost"
-        className="rounded-3xl px-1 hover:bg-blue-300"
+        className="rounded-3xl ps-2 hover:bg-blue-300"
       >
         {isExpandReply ? (
           <IoMdArrowDropup className="h-6 w-6" />
         ) : (
           <IoMdArrowDropdown className="h-6 w-6" />
         )}
-        <span className="ms-3 text-[14px] text-blue-800">11 Balasan</span>
+        <span className="text-[14px] text-blue-800">11 Balasan</span>
       </Button>
       {isExpandReply && (
         <div>

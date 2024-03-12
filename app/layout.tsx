@@ -27,12 +27,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html className="scroll-smooth" lang="en" suppressHydrationWarning>
       <body
         suppressHydrationWarning
         className={`${poppins.className} container min-w-[250px]`}
       >
-        <NextTopLoader initialPosition={0.15} color="#ff0000" />
+        <NextTopLoader
+          showSpinner={false}
+          initialPosition={0.15}
+          color="#ff0000"
+        />
         <header className=" sticky top-0 z-30 w-full">
           <Suspense fallback={<></>}>
             <Navbar />
