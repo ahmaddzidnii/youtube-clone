@@ -66,6 +66,7 @@ export const DescriptionComponent = () => {
     Rec Engineer: Yusup Albantani & Rioexondul
     Recorded at GS 03 UK Studio 
     Mixed & Mastered by Ari Renaldi at ARU Studio
+    
     Music video :
     Music Video Production by Nocturnal Projects
     Concept by Yovie Widianto

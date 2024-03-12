@@ -18,7 +18,7 @@ export const Navbar = () => {
   const { onOpen, setSidebarMediumState, sidebar_medium_open } = useSidebar();
   const pathname = usePathname();
   return (
-    <div className="flex h-[56px] w-full items-center justify-between bg-background md:gap-x-10 xl:gap-x-20">
+    <div className=" flex h-[56px] w-full items-center justify-between bg-background md:gap-x-10 xl:gap-x-20">
       {/* Left */}
       <div className="flex h-full items-center">
         <Button

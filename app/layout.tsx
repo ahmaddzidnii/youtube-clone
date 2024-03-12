@@ -35,9 +35,10 @@ export default function RootLayout({
         <NextTopLoader
           showSpinner={false}
           initialPosition={0.15}
+          zIndex={99999999}
           color="#ff0000"
         />
-        <header className=" sticky top-0 z-30 w-full">
+        <header className=" sticky top-0 z-[9999] w-full">
           <Suspense fallback={<></>}>
             <Navbar />
           </Suspense>

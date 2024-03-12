@@ -13,7 +13,7 @@ import React from "react";
 import { DescriptionComponent } from "@/components/watch/description/description-component";
 
 export const metadata = {
-  title: "title video",
+  title: "Arsy Widianto, Tiara Andini - Masih Hatiku (Official Music Video)",
 };
 
 export default function WatchPage({

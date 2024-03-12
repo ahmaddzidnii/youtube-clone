@@ -7,15 +7,38 @@ import { CommentExpand } from "@/components/watch/comment/comment-expand";
 import { ReplyComment } from "@/components/watch/comment/reply-comment";
 import { InputComment } from "@/components/watch/comment/input-comment";
 import { InputReply } from "@/components/watch/comment/input-reply";
+import { Button } from "@/components/ui/button";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 
 export const CommentComponent = () => {
   return (
     <div className="mb-8 mt-5 flex flex-col">
       <div className="mb-6 flex items-center gap-x-4 p-2">
         <h1 className="text-[20px] font-bold">7.601 Komentar</h1>
-        <button className="inline-flex items-center gap-x-[1px] text-[14px]">
-          <BsFilterLeft className="mr-2 h-6 w-6" /> Urutkan
-        </button>
+        <Popover>
+          <PopoverTrigger asChild>
+            <Button
+              variant="ghost"
+              className="inline-flex items-center gap-x-[1px] text-[14px]"
+            >
+              <BsFilterLeft className="mr-2 h-6 w-6" /> Urutkan
+            </Button>
+          </PopoverTrigger>
+          <PopoverContent sideOffset={2} className="w-[200px] p-0 shadow-md">
+            <div className="flex flex-col">
+              <span className="cursor-pointer bg-secondary p-3 hover:bg-secondary">
+                Komentar teratas
+              </span>
+              <span className="cursor-pointer p-3 hover:bg-secondary">
+                Terbaru dulu
+              </span>
+            </div>
+          </PopoverContent>
+        </Popover>
       </div>
       <InputComment />
       {/* List komentar */}
