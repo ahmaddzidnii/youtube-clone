@@ -43,8 +43,8 @@ export default function WatchPage({
         </h1>
         {/* Title */}
 
-        <div className="flex">
-          <div className="w-full flex-1">
+        <div className="flex flex-wrap ">
+          <div className="">
             <div className="flex w-full gap-x-4">
               <div className="flex gap-x-2">
                 <div className="relative aspect-square h-[40px] w-[40px] overflow-hidden rounded-full pe-4">
@@ -66,17 +66,12 @@ export default function WatchPage({
           </div>
 
           {/* Komponen Like dislike dll Mode Layar md ke atas */}
-          <div className="hidden md:block">
+          <div className="mt-5 md:ms-auto md:mt-0">
             <ButtonInteractive />
           </div>
+
           {/* Komponen Like dislike dll Mode Layar md ke atas */}
         </div>
-
-        {/* Komponen Like dislike dll Mode Layar md ke bawah */}
-        <div className=" md:hidden">
-          <ButtonInteractive />
-        </div>
-        {/* Komponen Like dislike dll Mode Layar md ke bawah */}
 
         {/* Deskripsi */}
         <DescriptionComponent />

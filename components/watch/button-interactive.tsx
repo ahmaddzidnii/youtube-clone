@@ -1,12 +1,13 @@
 "use client";
 
 import { AiOutlineDislike, AiOutlineLike } from "react-icons/ai";
-import { IoIosMore } from "react-icons/io";
+import { IoIosMore, IoMdCut } from "react-icons/io";
 import { PiShareFatLight } from "react-icons/pi";
 import { TfiDownload } from "react-icons/tfi";
-import { Button } from "../ui/button";
+import { Button } from "@/components/ui/button";
 import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 import { useEffect, useState } from "react";
+import { IoFlagOutline } from "react-icons/io5";
 
 export const ButtonInteractive = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -14,7 +15,7 @@ export const ButtonInteractive = () => {
     setIsMounted(true);
   }, []);
   return (
-    <div className="flex w-full md:justify-end">
+    <div className="flex w-full justify-end">
       <div className="flex gap-x-3">
         <div>
           <Button
@@ -37,7 +38,7 @@ export const ButtonInteractive = () => {
         <Button
           title="Bagikan"
           variant="secondary"
-          className="hidden gap-x-2 rounded-3xl sm:inline-flex"
+          className="xs:inline-flex hidden gap-x-2 rounded-3xl"
         >
           <PiShareFatLight className="h-[20px] w-[20px]" />
           Bagikan
@@ -50,6 +51,8 @@ export const ButtonInteractive = () => {
           <TfiDownload className="h-[20px] w-[20px]" />
           Download
         </Button>
+
+        {/* POPOVER BUTTON COLLAPSE */}
         <Popover>
           <PopoverTrigger asChild>
             <Button
@@ -60,17 +63,39 @@ export const ButtonInteractive = () => {
               <IoIosMore className="aspect-square h-[20px] w-[20px]" />
             </Button>
           </PopoverTrigger>
-          <PopoverContent sideOffset={2} className="w-[200px] p-0 shadow-md">
-            <div className="flex flex-col">
-              <span className="cursor-pointer bg-secondary p-3 hover:bg-secondary">
-                Komentar teratas
-              </span>
-              <span className="cursor-pointer p-3 hover:bg-secondary">
-                Terbaru dulu
-              </span>
+          <PopoverContent
+            asChild
+            className="w-[190px] overflow-hidden rounded-2xl p-0 shadow-md"
+          >
+            <div className="block py-2">
+              <div
+                role="button"
+                className="inline-flex h-9 w-full items-center justify-start pe-3  ps-4 hover:bg-secondary sm:hidden "
+              >
+                <PiShareFatLight className="me-4 h-[24px] w-[24px]" /> Bagikan
+              </div>
+              <div
+                role="button"
+                className="inline-flex h-9 w-full items-center justify-start pe-3  ps-4 hover:bg-secondary sm:hidden "
+              >
+                <TfiDownload className="me-4 h-[24px] w-[24px]" /> Download
+              </div>
+              <div
+                role="button"
+                className="inline-flex h-9 w-full items-center justify-start pe-3  ps-4 hover:bg-secondary "
+              >
+                <IoMdCut className="me-4 h-[24px] w-[24px]" /> Clip
+              </div>
+              <div
+                role="button"
+                className="inline-flex h-9 w-full items-center justify-start pe-3  ps-4 hover:bg-secondary "
+              >
+                <IoFlagOutline className="me-4 h-[24px] w-[24px]" /> Laporkan
+              </div>
             </div>
           </PopoverContent>
         </Popover>
+        {/* POPOVER BUTTON COLLAPSE */}
       </div>
     </div>
   );
