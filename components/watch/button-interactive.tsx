@@ -4,10 +4,15 @@ import { AiOutlineDislike, AiOutlineLike } from "react-icons/ai";
 import { IoIosMore, IoMdCut } from "react-icons/io";
 import { PiShareFatLight } from "react-icons/pi";
 import { TfiDownload } from "react-icons/tfi";
-import { Button } from "@/components/ui/button";
-import { Popover, PopoverContent, PopoverTrigger } from "../ui/popover";
 import { useEffect, useState } from "react";
 import { IoFlagOutline } from "react-icons/io5";
+
+import { Button } from "@/components/ui/button";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 
 export const ButtonInteractive = () => {
   const [isMounted, setIsMounted] = useState(false);
@@ -38,7 +43,7 @@ export const ButtonInteractive = () => {
         <Button
           title="Bagikan"
           variant="secondary"
-          className="xs:inline-flex hidden gap-x-2 rounded-3xl"
+          className="hidden gap-x-2 rounded-3xl xs:inline-flex"
         >
           <PiShareFatLight className="h-[20px] w-[20px]" />
           Bagikan

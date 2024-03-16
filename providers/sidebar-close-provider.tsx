@@ -4,17 +4,21 @@ import { useEffect } from "react";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useSidebar } from "@/hooks/use-sidebar";
 
-export function SidebarCloseProvider() {
+export function SidebarCloseProvider({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   const pathname = usePathname();
   const searchParams = useSearchParams();
-  const { onClose } = useSidebar();
+  const { onClose, isOpen } = useSidebar();
 
   useEffect(() => {
     const url = `${pathname}?${searchParams}`;
-    if (url) {
+    if (url && isOpen) {
       onClose();
     }
   }, [pathname, searchParams]);
 
-  return null;
+  return <>{children}</>;
 }

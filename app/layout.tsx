@@ -38,18 +38,17 @@ export default function RootLayout({
           zIndex={99999999}
           color="#ff0000"
         />
-        <header className=" sticky top-0 z-[9999] w-full">
+        <SidebarCloseProvider>
+          <header className=" sticky top-0 z-[9999] w-full">
+            <Suspense fallback={<></>}>
+              <Navbar />
+            </Suspense>
+          </header>
           <Suspense fallback={<></>}>
-            <Navbar />
+            <SidebarMobile />
           </Suspense>
-        </header>
-        <Suspense fallback={<></>}>
-          <SidebarMobile />
-        </Suspense>
+        </SidebarCloseProvider>
 
-        <Suspense fallback={<></>}>
-          <SidebarCloseProvider />
-        </Suspense>
         {children}
       </body>
     </html>

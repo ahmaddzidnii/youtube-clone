@@ -24,7 +24,7 @@ export default function WatchPage({
   return (
     <main
       suppressHydrationWarning
-      className="flex flex-col gap-[24px] py-[24px] xl:flex-row"
+      className="flex flex-col gap-[24px] py-[24px] lg:flex-row"
     >
       <div className="flex flex-1 flex-col gap-3">
         {/* VideoPlayer */}
@@ -44,7 +44,7 @@ export default function WatchPage({
         {/* Title */}
 
         <div className="flex flex-wrap ">
-          <div className="">
+          <div>
             <div className="flex w-full gap-x-4">
               <div className="flex gap-x-2">
                 <div className="relative aspect-square h-[40px] w-[40px] overflow-hidden rounded-full pe-4">
@@ -65,12 +65,11 @@ export default function WatchPage({
             </div>
           </div>
 
-          {/* Komponen Like dislike dll Mode Layar md ke atas */}
+          {/* Komponen Like dislike dll */}
           <div className="mt-5 md:ms-auto md:mt-0">
             <ButtonInteractive />
           </div>
-
-          {/* Komponen Like dislike dll Mode Layar md ke atas */}
+          {/* Komponen Like dislike dll */}
         </div>
 
         {/* Deskripsi */}
@@ -78,9 +77,9 @@ export default function WatchPage({
         {/* Deskripsi */}
 
         {/* Lebar layar xl ke bawah */}
-        {Array.from({ length: 20 }).map((_, i) => (
-          <RecommendationVideoXltoBottom key={i} />
-        ))}
+
+        <RecommendationVideoXltoBottom />
+
         <Button variant="outline" className="rounded-3xl xl:hidden">
           Lebih Banyak
         </Button>
@@ -94,9 +93,8 @@ export default function WatchPage({
       <div className="w-full lg:w-[405px]">
         <div className="flex flex-col gap-3">
           {/* Lebar layar xl ke atas */}
-          {Array.from({ length: 30 }).map((_, i) => (
-            <RecommendationVideoXLToUp key={i} />
-          ))}
+
+          <RecommendationVideoXLToUp />
         </div>
         {/* Lebar layar xl ke atas */}
       </div>

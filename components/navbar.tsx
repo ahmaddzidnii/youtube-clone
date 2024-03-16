@@ -13,6 +13,11 @@ import { useSidebar } from "@/hooks/use-sidebar";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover";
 
 export const Navbar = () => {
   const { onOpen, setSidebarMediumState, sidebar_medium_open } = useSidebar();
@@ -100,16 +105,27 @@ export const Navbar = () => {
         <Button variant="ghost" size="icon">
           <CiBellOn className="h-[24px] w-[24px]" />
         </Button>
-        <Button variant="ghost" size="icon" className=" ps-[6px]">
-          <div className=" relative aspect-square h-[32px] w-[32px] rounded-full">
-            <Image
-              src="https://yt3.ggpht.com/5TT-vjjGa5tRwdqjeQX75vK_jTSJJLuJQNlEmYx1eMWv3AnNRhoDtogqnuOZ9kxvoNdsR3Vj1w=s88-c-k-c0x00ffffff-no-rj"
-              alt="profile"
-              fill
-              className="rounded-full"
-            />
-          </div>
-        </Button>
+        <Popover>
+          <PopoverTrigger asChild>
+            <Button variant="ghost" size="icon" className=" ps-[6px]">
+              <div className=" relative aspect-square h-[32px] w-[32px] rounded-full">
+                <Image
+                  src="https://yt3.ggpht.com/5TT-vjjGa5tRwdqjeQX75vK_jTSJJLuJQNlEmYx1eMWv3AnNRhoDtogqnuOZ9kxvoNdsR3Vj1w=s88-c-k-c0x00ffffff-no-rj"
+                  alt="profile"
+                  fill
+                  className="rounded-full"
+                />
+              </div>
+            </Button>
+          </PopoverTrigger>
+          <PopoverContent
+            asChild
+            side="left"
+            className="xs:w-[300px] z-[99999] mt-3 w-[270px]"
+          >
+            <div>test</div>
+          </PopoverContent>
+        </Popover>
       </div>
       {/* Right */}
     </div>
