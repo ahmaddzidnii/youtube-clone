@@ -15,17 +15,11 @@ export default async function Home() {
       {/* Chip Bar */}
       <ChipBar className="mt-2">
         {Array.from({ length: 5 }).map((_, index) => (
-          <CarouselItem
-            key={index}
-            className={cn(
-              "basis-1/2 xs:basis-1/3 sm:basis-1/4 md:basis-1/6",
-              index !== 0 && "sm:-ms-8 md:-ms-4 lg:-ms-12 xl:-ms-20",
-            )}
-          >
+          <CarouselItem key={index} className={cn(index !== 0 && "")}>
             <Button
               size="sm"
               variant={index === 0 ? "default" : "secondary"}
-              className="me-4 h-8 rounded-xl p-4"
+              className=" h-8 rounded-xl p-4"
             >
               Baru diupload
             </Button>

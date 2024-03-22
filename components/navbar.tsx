@@ -18,6 +18,7 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { Separator } from "./ui/separator";
 
 export const Navbar = () => {
   const { onOpen, setSidebarMediumState, sidebar_medium_open } = useSidebar();
@@ -121,9 +122,29 @@ export const Navbar = () => {
           <PopoverContent
             asChild
             side="left"
-            className="xs:w-[300px] z-[99999] mt-3 w-[270px]"
+            className="z-[99999] mt-3 w-[270px] p-0 xs:w-[300px]"
           >
-            <div>test</div>
+            <div>
+              <div className="flex p-4">
+                <div className="relative me-4 aspect-square h-10 w-10 overflow-hidden rounded-full">
+                  <Image
+                    src="https://yt3.ggpht.com/5TT-vjjGa5tRwdqjeQX75vK_jTSJJLuJQNlEmYx1eMWv3AnNRhoDtogqnuOZ9kxvoNdsR3Vj1w=s88-c-k-c0x00ffffff-no-rj"
+                    alt="profile"
+                    fill
+                  />
+                </div>
+
+                <div>
+                  <p className="text-[16px]">Madz Channel</p>
+                  <p className="text-[16px]">@madzchannel3399</p>
+                  <Link className="text-[14px] text-[#065FD4]" href="#">
+                    Lihat channel Anda
+                  </Link>
+                </div>
+              </div>
+              <Separator className="w-full bg-secondary" />
+              <div className="p-2">test</div>
+            </div>
           </PopoverContent>
         </Popover>
       </div>

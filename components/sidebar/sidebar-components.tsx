@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState } from "react";
 
 import { IoIosArrowUp, IoMdHome } from "react-icons/io";
 import { IoIosArrowForward } from "react-icons/io";
@@ -154,7 +153,7 @@ export const SidebarLarge = () => {
             <SubscriptionList
               key={index}
               channelName="Tiara Andini"
-              img="https://yt3.ggpht.com/fVfhi0kDPo-M_-O3cVtxGV34NIulOixVODmheJZ8tqgUW9ss80RZRL6qdE0msiwC3LcE_CtR5A=s88-c-k-c0x00ffffff-no-nd-rj"
+              img="https://yt3.ggpht.com/Tv_uW4HFi3wOkbhI0U6pW4tQALJmvvwPai8C3oLsoDAqDQMps_bcHvkR62YaZSuYoSLN9SXRVg=s88-c-k-c0x00ffffff-no-nd-rj"
               link="#"
             />
           ))}

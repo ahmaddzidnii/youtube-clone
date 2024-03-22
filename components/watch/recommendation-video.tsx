@@ -11,11 +11,11 @@ export const RecommendationVideoXLToUp = () => {
       {/* Chip Bar */}
       <ChipBar>
         {Array.from({ length: 5 }).map((_, index) => (
-          <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/3">
+          <CarouselItem key={index}>
             <Button
               size="sm"
               variant={index === 0 ? "default" : "secondary"}
-              className="me-4 h-8 rounded-xl p-4"
+              className=" h-8 rounded-xl p-4"
             >
               Baru diupload
             </Button>
@@ -62,14 +62,11 @@ export const RecommendationVideoXltoBottom = () => {
       {/* Chip Bar */}
       <ChipBar>
         {Array.from({ length: 5 }).map((_, index) => (
-          <CarouselItem
-            key={index}
-            className="basis-1/2 xs:basis-1/3 md:basis-1/5"
-          >
+          <CarouselItem key={index}>
             <Button
               size="sm"
               variant={index === 0 ? "default" : "secondary"}
-              className="me-4 h-8 rounded-xl p-4"
+              className="h-8 rounded-xl p-4"
             >
               Baru diupload
             </Button>

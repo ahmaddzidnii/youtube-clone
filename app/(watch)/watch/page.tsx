@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Link from "next/link";
+import React from "react";
 
 import { Button } from "@/components/ui/button";
 import { ButtonInteractive } from "@/components/watch/button-interactive";
@@ -9,7 +9,6 @@ import {
 } from "@/components/watch/recommendation-video";
 import { VideoPlayer } from "@/components/watch/video-player";
 import { CommentComponent } from "@/components/watch/comment";
-import React from "react";
 import { DescriptionComponent } from "@/components/watch/description/description-component";
 
 export const metadata = {
