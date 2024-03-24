@@ -13,8 +13,10 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { ResponseType } from "@/app/(watch)/watch/response";
+import { formatNumber } from "@/utils/number-formater";
 
-export const ButtonInteractive = () => {
+export const ButtonInteractive = ({ data }: { data: ResponseType }) => {
   const [isMounted, setIsMounted] = useState(false);
   useEffect(() => {
     setIsMounted(true);
@@ -30,7 +32,10 @@ export const ButtonInteractive = () => {
           "
           >
             <AiOutlineLike className="h-[20px] w-[20px]" />
-            50 rb
+            {formatNumber({
+              number: data?.items[0].statistics.likeCount,
+              format: "truncated",
+            })}
           </Button>
           <Button
             title="Saya tidak suka ini"

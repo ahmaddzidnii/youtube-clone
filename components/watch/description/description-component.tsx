@@ -1,8 +1,14 @@
 "use client";
 import Link from "next/link";
 import { Fragment, useState } from "react";
+import moment from "moment";
+import "moment/locale/id";
+moment.locale("id");
 
-export const DescriptionComponent = () => {
+import { ResponseType } from "@/app/(watch)/watch/response";
+import { formatNumber } from "@/utils/number-formater";
+
+export const DescriptionComponent = ({ data }: { data: ResponseType }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   function detectLinks(text: string) {
@@ -140,21 +146,37 @@ export const DescriptionComponent = () => {
     
     http://vevo.ly/WhFrd8`;
 
-  const formatedDescription = desCriptionText.split("\n").map((line, index) => (
-    <Fragment key={index}>
-      {detectLinks(line)}
-      <br />
-    </Fragment>
-  ));
+  const formatedDescription = data?.items[0].snippet.description
+    .split("\n")
+    .map((line, index) => (
+      <Fragment key={index}>
+        {detectLinks(line)}
+        <br />
+      </Fragment>
+    ));
   const truncatedDescription = formatedDescription.slice(0, 3);
+
+  const fromNow = moment(data?.items[0].snippet.publishedAt).fromNow();
+  const formatedFromNow = fromNow.replace("se", "1\t");
   return (
     <div className="mt-3 w-full rounded-md bg-secondary p-3">
       <div className="flex flex-wrap gap-x-2 text-[14px]">
-        <span className="font-semibold">3.739.610 x ditonton</span>
-        <span className="font-medium">
-          Telah tayang perdana pada 23 Feb 2024
+        <span className="font-semibold">
+          {formatNumber({
+            number: data?.items[0].statistics.viewCount,
+            format: isExpanded ? "full" : "truncated",
+          })}
+          &nbsp;x ditonton
         </span>
-        <Link className="font-semibold text-blue-600" href="/feed/trending">
+        <span className="font-medium">
+          {isExpanded
+            ? moment(data?.items[0].snippet.publishedAt).format("ll")
+            : formatedFromNow}
+        </span>
+        <Link
+          className="hidden font-semibold text-blue-600"
+          href="/feed/trending"
+        >
           #21 di Trending untuk musik
         </Link>
       </div>

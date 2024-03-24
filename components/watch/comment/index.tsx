@@ -13,12 +13,20 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from "@/components/ui/popover";
+import { ResponseType } from "@/app/(watch)/watch/response";
+import { formatNumber } from "@/utils/number-formater";
 
-export const CommentComponent = () => {
+export const CommentComponent = ({ data }: { data: ResponseType }) => {
   return (
     <div className="mb-8 mt-5 flex flex-col">
       <div className="mb-6 flex items-center gap-x-4 p-2">
-        <h1 className="text-[20px] font-bold">7.601 Komentar</h1>
+        <h1 className="text-[20px] font-bold">
+          {formatNumber({
+            number: data?.items[0].statistics.commentCount,
+            format: "full",
+          })}
+          &nbsp; Komentar
+        </h1>
         <Popover>
           <PopoverTrigger asChild>
             <Button
