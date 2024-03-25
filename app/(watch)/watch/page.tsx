@@ -121,9 +121,9 @@ export default async function WatchPage({
   return (
     <main
       suppressHydrationWarning
-      className="flex flex-col gap-[24px] py-[24px] lg:flex-row"
+      className="flex w-full flex-col gap-[24px] py-[24px] lg:flex-row"
     >
-      <div className="flex flex-1 flex-col gap-3">
+      <div className="flex   flex-1 flex-col gap-3">
         {/* VideoPlayer */}
         <div className="relative aspect-video w-full overflow-hidden rounded-xl">
           {/* <Image alt="tes" src="https://placehold.co/1280x720" fill /> */}
@@ -140,7 +140,7 @@ export default async function WatchPage({
         </h1>
         {/* Title */}
 
-        <div className="flex flex-wrap ">
+        <div className="flex flex-wrap">
           <div>
             <div className="flex w-full gap-x-4">
               <div className="flex gap-x-2">
@@ -189,7 +189,7 @@ export default async function WatchPage({
         {/* Komentar */}
       </div>
 
-      <div className="w-full lg:w-[405px]">
+      <div className="w-[402px] ">
         <div className="flex flex-col gap-3">
           {/* Lebar layar xl ke atas */}
 
